@@ -159,6 +159,9 @@ module Norikra
       end
 
       def update(new_events, old_events)
+        new_events ||= []
+        old_events ||= []
+
         t = Time.now.to_i
         if @mode == :sync
           news = new_events.map{|e| type_convert(e) }
